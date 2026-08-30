@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///C:/Users/WINDOWS%2011/Desktop/index.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול תאריכי חתונות - דעת אהרן</title>
+    <!-- שימוש בפונט Assistant של Google Fonts -->
+    <link href="./index_files/css2" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #c89d7c; /* גוון שמפניה / רוז גולד עדין */
+            --primary-hover: #802030; /* גוון בורדו חם */
+            --logo-burgundy: #4a121a; /* גוון הבורדו של הישיבה */
+            --bg-color: #f5f6fa;
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --text-color: #2f3640;
+            --border-color: rgba(220, 221, 225, 0.6);
+            --danger-color: #e84118;
+            --danger-hover: #c23616;
+            --excel-color: #27ae60;
+            --excel-hover: #219653;
+            --sync-color: #2980b9;
+            --sync-hover: #1f618d;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background: radial-gradient(circle at 15% 15%, rgba(227, 242, 253, 0.75) 0%, transparent 55%),
+                        radial-gradient(circle at 85% 85%, rgba(247, 235, 218, 0.8) 0%, transparent 55%),
+                        linear-gradient(135deg, #f2f6fa 0%, #fbf9f6 50%, #f7edd9 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .header-logo {
+            max-height: 130px;
+            width: auto;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header h1 {
+            color: var(--logo-burgundy);
+            margin: 0 0 5px 0;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            color: #57606f;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .form-section, .list-section {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .section-title {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+            color: var(--logo-burgundy);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--logo-burgundy);
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group input:focus {
+            border-color: var(--logo-burgundy);
+            box-shadow: 0 0 5px rgba(74, 18, 26, 0.2);
+        }
+
+        .form-actions {
+            grid-column: span 2;
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .form-actions {
+                grid-column: span 1;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .btn-submit, .btn-cancel {
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, opacity 0.2s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            background-color: var(--logo-burgundy);
+            color: white;
+            flex: 2;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-cancel {
+            background-color: #718093;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-cancel:hover {
+            background-color: #57606f;
+        }
+
+        .search-container {
+            margin-bottom: 15px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-container input:focus {
+            border-color: var(--logo-burgundy);
+            box-shadow: 0 0 8px rgba(74, 18, 26, 0.15);
+        }
+
+        .data-management-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-data {
+            background-color: transparent;
+            border: 1px solid var(--logo-burgundy);
+            color: var(--logo-burgundy);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-data:hover {
+            background-color: var(--logo-burgundy);
+            color: white;
+        }
+
+        .btn-excel {
+            border-color: var(--excel-color);
+            color: var(--excel-color);
+        }
+
+        .btn-excel:hover {
+            background-color: var(--excel-color);
+            color: white;
+        }
+
+        .btn-sync {
+            border-color: var(--sync-color);
+            color: var(--sync-color);
+        }
+
+        .btn-sync:hover {
+            background-color: var(--sync-color);
+            color: white;
+        }
+
+        .status-badge {
+            font-size: 0.85rem;
+            color: #57606f;
+            margin-right: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(248, 249, 250, 0.7);
+            font-weight: 600;
+            color: var(--logo-burgundy);
+        }
+
+        tr:hover {
+            background-color: rgba(240, 240, 240, 0.4);
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-action {
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            color: white;
+        }
+
+        .btn-edit {
+            background-color: var(--logo-burgundy);
+        }
+
+        .btn-edit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-delete {
+            background-color: var(--danger-color);
+        }
+
+        .btn-delete:hover {
+            background-color: var(--danger-hover);
+        }
+
+        .no-data {
+            text-align: center;
+            color: #718093;
+            padding: 30px;
+            font-style: italic;
+        }
+        
+        .loading-text {
+            font-size: 0.85rem;
+            color: var(--logo-burgundy);
+            margin-top: 4px;
+            font-weight: 600;
+            min-height: 1.2rem;
+            transition: color 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="./index_files/logo.png" alt="לוגו דעת אהרן" class="header-logo" onerror="this.style.display=&#39;none&#39;;">
+            <h1>רשימת תאריכי חתונות</h1>
+            <p>ישיבת דעת אהרן - מערכת אישית לניהול ומעקב אחר מועדי חתונות</p>
+        </header>
+
+        <main>
+            <!-- אזור הטבלה - מוצג ראשון -->
+            <section class="list-section" id="listSection">
+                <h2 class="section-title">חתונות שמורות ברשימה</h2>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="🔍 חפש ברשימה (לפי חתן, ועד, אולם, כתובת, יום או תאריך)...">
+                </div>
+
+                <div class="data-management-actions">
+                    <button id="syncGithubBtn" class="btn-data btn-sync">🔄 סנכרן מ-GitHub</button>
+                    <button id="exportExcelBtn" class="btn-data btn-excel">📊 ייצוא לאקסל (Excel)</button>
+                    <button id="exportBtn" class="btn-data">📥 גיבוי רשימה (JSON)</button>
+                    <button id="importBtn" class="btn-data">📤 טעינת גיבוי מקומי</button>
+                    <input type="file" id="importFileInput" style="display: none;" accept=".json">
+                    <span id="syncStatus" class="status-badge" style="color: rgb(39, 174, 96);">✅ סונכרן מ-GitHub</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>שם החתן</th>
+                                <th>ועד</th>
+                                <th>שם האולם</th>
+                                <th>כתובת</th>
+                                <th>יום בשבוע</th>
+                                <th>תאריך לועזי</th>
+                                <th>תאריך עברי</th>
+                                <th>פעולות</th>
+                            </tr>
+                        </thead>
+                        <tbody id="weddingList"><tr>
+                        <td><strong>בדיקה</strong></td>
+                        <td>בדיקה</td>
+                        <td>בדיקה</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%91%D7%93%D7%99%D7%A7%D7%94" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>בדיקה</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום ראשון</td>
+                        <td>30/08/2026</td>
+                        <td>יז אלול תשפו</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_mrfc14mf0_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_mrfc14mf0_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>יהודה פרויליך</strong></td>
+                        <td>ועד ו</td>
+                        <td>נוף עלית</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%A0%D7%95%D7%A3%20%D7%A2%D7%9C%D7%99%D7%AA%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%A9%D7%93%27%20%D7%99%D7%97%D7%96%D7%A7%D7%90%D7%9C%202" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, שד' יחזקאל 2</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שני</td>
+                        <td>05/10/2026</td>
+                        <td>כד תשרי תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_i3tyjibb0_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_i3tyjibb0_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>יהודה לוי</strong></td>
+                        <td>ועד ו</td>
+                        <td>נוף עלית</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%A0%D7%95%D7%A3%20%D7%A2%D7%9C%D7%99%D7%AA%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%A9%D7%93%27%20%D7%99%D7%97%D7%96%D7%A7%D7%90%D7%9C%202" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, שד' יחזקאל 2</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום רביעי</td>
+                        <td>07/10/2026</td>
+                        <td>כו תשרי תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_mwda15qi4_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_mwda15qi4_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>אברהם ג'יקוב</strong></td>
+                        <td>ועד ו</td>
+                        <td>אולמי פביליון</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%95%D7%9C%D7%9E%D7%99%20%D7%A4%D7%91%D7%99%D7%9C%D7%99%D7%95%D7%9F%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D%2C%20%D7%94%D7%90%D7%95%D7%9E%D7%9F%2014" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>ירושלים, האומן 14</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום חמישי</td>
+                        <td>08/10/2026</td>
+                        <td>כז תשרי תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_peeq3erhh_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_peeq3erhh_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>שימי אלקיכן</strong></td>
+                        <td>ועד ו</td>
+                        <td>אולמי גוטניק</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%95%D7%9C%D7%9E%D7%99%20%D7%92%D7%95%D7%98%D7%A0%D7%99%D7%A7%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D%2C%20%D7%91%D7%99%D7%AA%20%D7%94%D7%93%D7%A4%D7%95%D7%A1%2011" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>ירושלים, בית הדפוס 11</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום ראשון</td>
+                        <td>11/10/2026</td>
+                        <td>ל תשרי תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_0xhkyjjm3_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_0xhkyjjm3_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>אריאל דעי</strong></td>
+                        <td>ועד ו</td>
+                        <td>הדר דימול</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%94%D7%93%D7%A8%20%D7%93%D7%99%D7%9E%D7%95%D7%9C%20%D7%A8%D7%9E%D7%AA%20%D7%92%D7%9F%2C%20%D7%96%27%D7%91%D7%95%D7%98%D7%99%D7%A0%D7%A1%D7%A7%D7%99%201" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>רמת גן, ז'בוטינסקי 1</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שני</td>
+                        <td>12/10/2026</td>
+                        <td>א חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_v0rs48fuz_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_v0rs48fuz_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>אלחנן בוגרד</strong></td>
+                        <td>ועד ו</td>
+                        <td>אולמי בריליאנט</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%95%D7%9C%D7%9E%D7%99%20%D7%91%D7%A8%D7%99%D7%9C%D7%99%D7%90%D7%A0%D7%98%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%90%D7%95%D7%A8%D7%97%D7%95%D7%AA%20%D7%A6%D7%93%D7%99%D7%A7%D7%99%D7%9D%205" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, אורחות צדיקים 5</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שלישי</td>
+                        <td>13/10/2026</td>
+                        <td>ב חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_s99kk26cf_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_s99kk26cf_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>בניהו כהן</strong></td>
+                        <td>ועד ח</td>
+                        <td>אולמי אובליון</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%95%D7%9C%D7%9E%D7%99%20%D7%90%D7%95%D7%91%D7%9C%D7%99%D7%95%D7%9F%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%93%D7%A8%D7%9A%20%D7%A7%22%D7%A1%201" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, דרך ק"ס 1</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום רביעי</td>
+                        <td>14/10/2026</td>
+                        <td>ג חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_fdbxfae6p_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_fdbxfae6p_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>משה פרידמן</strong></td>
+                        <td>ועד ו</td>
+                        <td>אולמי כינור דוד</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%95%D7%9C%D7%9E%D7%99%20%D7%9B%D7%99%D7%A0%D7%95%D7%A8%20%D7%93%D7%95%D7%93%20%D7%91%D7%99%D7%AA%20%D7%A9%D7%9E%D7%A9%2C%20%D7%94%D7%90%D7%95%D7%9E%D7%9F%202" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>בית שמש, האומן 2</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום חמישי</td>
+                        <td>15/10/2026</td>
+                        <td>ד חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_k74ximwe4_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_k74ximwe4_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>משה היישריק</strong></td>
+                        <td>ועד ו</td>
+                        <td>אחוזת פרידמן</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%97%D7%95%D7%96%D7%AA%20%D7%A4%D7%A8%D7%99%D7%93%D7%9E%D7%9F%20%D7%90%D7%A9%D7%93%D7%95%D7%93%2C%20%D7%99%D7%94%D7%9C%D7%95%D7%9D%204" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>אשדוד, יהלום 4</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שלישי</td>
+                        <td>03/11/2026</td>
+                        <td>כג חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_40f02esk0_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_40f02esk0_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>אוריאל שילוני</strong></td>
+                        <td>ועד ו</td>
+                        <td>נוף עלית</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%A0%D7%95%D7%A3%20%D7%A2%D7%9C%D7%99%D7%AA%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%A9%D7%93%27%20%D7%99%D7%97%D7%96%D7%A7%D7%90%D7%9C%202" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, שד' יחזקאל 2</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום חמישי</td>
+                        <td>05/11/2026</td>
+                        <td>כה חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_m5dshmz5z_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_m5dshmz5z_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>יצחק ויא</strong></td>
+                        <td>ועד ח</td>
+                        <td>בית ברכה</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%91%D7%99%D7%AA%20%D7%91%D7%A8%D7%9B%D7%94%20%D7%91%D7%99%D7%AA%D7%A8%2C%20%D7%A8%D7%91%D7%99%20%D7%A2%D7%A7%D7%99%D7%91%D7%90%2034" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>ביתר, רבי עקיבא 34</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום ראשון</td>
+                        <td>08/11/2026</td>
+                        <td>כח חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_nq8jigu7k_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_nq8jigu7k_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>יוסף חיים המונד</strong></td>
+                        <td>ועד ז</td>
+                        <td>ארמונות אור</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%A8%D7%9E%D7%95%D7%A0%D7%95%D7%AA%20%D7%90%D7%95%D7%A8%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D%2C%20%D7%91%D7%99%D7%AA%20%D7%94%D7%93%D7%A4%D7%95%D7%A1%205" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>ירושלים, בית הדפוס 5</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שני</td>
+                        <td>09/11/2026</td>
+                        <td>כט חשון תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_w104wenzq_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_w104wenzq_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>גבריאל ניסים מזלין</strong></td>
+                        <td>ועד ז</td>
+                        <td>כינור דוד</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%9B%D7%99%D7%A0%D7%95%D7%A8%20%D7%93%D7%95%D7%93%20%D7%91%D7%99%D7%AA%20%D7%A9%D7%9E%D7%A9%2C%20%D7%94%D7%90%D7%95%D7%9E%D7%9F%202" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>בית שמש, האומן 2</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום ראשון</td>
+                        <td>15/11/2026</td>
+                        <td>ה כסלו תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_z7i3z8i4e_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_z7i3z8i4e_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>יעקב בנדיקט</strong></td>
+                        <td>ועד ו</td>
+                        <td>אולמי SERA [סרה]</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%95%D7%9C%D7%9E%D7%99%20SERA%20%5B%D7%A1%D7%A8%D7%94%5D%20%D7%91%D7%99%D7%AA%20%D7%A9%D7%9E%D7%A9%20%5B%D7%90%D7%96%D7%95%D7%A8%5D" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>בית שמש [אזור]</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שני</td>
+                        <td>16/11/2026</td>
+                        <td>ו כסלו תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_eypzjl35r_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_eypzjl35r_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>ישראל מאיר יפה</strong></td>
+                        <td>ועד ו</td>
+                        <td>היכל הנגינה</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%94%D7%99%D7%9B%D7%9C%20%D7%94%D7%A0%D7%92%D7%99%D7%A0%D7%94%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%A8%D7%A9%D7%91%22%D7%99%2021" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, רשב"י 21</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום חמישי</td>
+                        <td>19/11/2026</td>
+                        <td>ט כסלו תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_3tvjki5rc_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_3tvjki5rc_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>אריה לייב מזיע</strong></td>
+                        <td>ועד ז</td>
+                        <td>נאות השמחה</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%A0%D7%90%D7%95%D7%AA%20%D7%94%D7%A9%D7%9E%D7%97%D7%94%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%9C%D7%99%D7%AA%2C%20%D7%A0%D7%AA%D7%99%D7%91%D7%95%D7%AA%20%D7%94%D7%9E%D7%A9%D7%A4%D7%98%20111" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>מודיעין עלית, נתיבות המשפט 111</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שני</td>
+                        <td>23/11/2026</td>
+                        <td>יג כסלו תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_8lpsbuj5w_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_8lpsbuj5w_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>שאול גולדברג</strong></td>
+                        <td>ועד ה</td>
+                        <td>ארמונות אור</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%A8%D7%9E%D7%95%D7%A0%D7%95%D7%AA%20%D7%90%D7%95%D7%A8%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D%2C%20%D7%91%D7%99%D7%AA%20%D7%94%D7%93%D7%A4%D7%95%D7%A1%205" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>ירושלים, בית הדפוס 5</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום רביעי</td>
+                        <td>25/11/2026</td>
+                        <td>טו כסלו תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_f0uord1f4_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_f0uord1f4_1788089844592">מחק</button>
+                        </td>
+                    </tr><tr>
+                        <td><strong>יצחק בדלנדר</strong></td>
+                        <td>ועד ו</td>
+                        <td>ארמונות פרידמן</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%90%D7%A8%D7%9E%D7%95%D7%A0%D7%95%D7%AA%20%D7%A4%D7%A8%D7%99%D7%93%D7%9E%D7%9F%20%D7%91%D7%A0%D7%99%20%D7%91%D7%A8%D7%A7%2C%20%D7%9B%D7%94%D7%A0%D7%9E%D7%9F%20108" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>בני ברק, כהנמן 108</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום שני</td>
+                        <td>30/11/2026</td>
+                        <td>כ כסלו תשפז</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_7uzf5n41c_1788089844592">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_7uzf5n41c_1788089844592">מחק</button>
+                        </td>
+                    </tr></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- אזור הטופס - מוצג שני -->
+            <section class="form-section" id="formSection">
+                <h2 class="section-title" id="formSectionTitle">הוספת חתונה חדשה</h2>
+                <form id="weddingForm">
+                    <div class="form-group">
+                        <label for="groomName">שם החתן:</label>
+                        <input type="text" id="groomName" required="" placeholder="הזן את שם החתן">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="committee">ועד:</label>
+                        <input type="text" id="committee" required="" placeholder="לדוגמה: ועד חמישי / א">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gregorianDate">תאריך לועזי:</label>
+                        <input type="date" id="gregorianDate" required="" min="2026-08-30">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hebrewDate">תאריך עברי:</label>
+                        <input type="text" id="hebrewDate" required="" placeholder="לדוגמה: כ״ז באב תשפ״ו">
+                        <div id="loadingHebrew" class="loading-text"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="venueName">שם האולם:</label>
+                        <input type="text" id="venueName" required="" placeholder="אולם, גן אירועים">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">כתובת:</label>
+                        <input type="text" id="address" required="" placeholder="עיר, רחוב ומספר">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit" id="submitBtn">שמור חתונה ברשימה</button>
+                        <button type="button" class="btn-cancel" id="cancelEditBtn" style="display: none;">ביטול עריכה</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const GITHUB_URLS = [
+                'https://raw.githubusercontent.com/e0548509872-ops/Daat-Aharon-Weddings/main/wedding_dates_backup.json',
+                'https://raw.githubusercontent.com/e0548509872-ops/Daat-Aharon-Weddings/master/wedding_dates_backup.json'
+            ];
+
+            const form = document.getElementById('weddingForm');
+            const listContainer = document.getElementById('weddingList');
+            const gregorianDateInput = document.getElementById('gregorianDate');
+            const hebrewDateInput = document.getElementById('hebrewDate');
+            const loadingHebrew = document.getElementById('loadingHebrew');
+            const searchInput = document.getElementById('searchInput');
+            const syncStatus = document.getElementById('syncStatus');
+            
+            const formSectionTitle = document.getElementById('formSectionTitle');
+            const submitBtn = document.getElementById('submitBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+
+            const exportBtn = document.getElementById('exportBtn');
+            const exportExcelBtn = document.getElementById('exportExcelBtn');
+            const importBtn = document.getElementById('importBtn');
+            const importFileInput = document.getElementById('importFileInput');
+            const syncGithubBtn = document.getElementById('syncGithubBtn');
+
+            function getTodayDateString() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            const todayStr = getTodayDateString();
+            gregorianDateInput.min = todayStr;
+
+            const dateCache = {
+                g2h: {},
+                h2g: {}
+            };
+
+            let weddings = [];
+            const savedData = localStorage.getItem('weddings');
+            try {
+                weddings = savedData ? JSON.parse(savedData) : [];
+            } catch (e) {
+                console.error("שגיאה בטעינת נתונים מ-localStorage", e);
+                weddings = [];
+            }
+
+            function removePastWeddings() {
+                const currentToday = getTodayDateString();
+                const initialCount = weddings.length;
+                
+                weddings = weddings.filter(w => {
+                    if (!w.gregorianDate) return false;
+                    return w.gregorianDate >= currentToday;
+                });
+
+                if (weddings.length !== initialCount) {
+                    saveWeddings();
+                }
+            }
+
+            function ensureIds() {
+                let needsSave = false;
+                weddings = weddings.map(w => {
+                    if (!w.id) {
+                        w.id = 'w_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+                        needsSave = true;
+                    }
+                    if (w.location && !w.venueName) {
+                        w.venueName = w.location;
+                        needsSave = true;
+                    }
+                    return w;
+                });
+                if (needsSave) saveWeddings();
+            }
+
+            function sortWeddings() {
+                weddings.sort((a, b) => {
+                    const dateA = a.gregorianDate || '';
+                    const dateB = b.gregorianDate || '';
+                    return dateA.localeCompare(dateB);
+                });
+            }
+
+            function saveWeddings() {
+                localStorage.setItem('weddings', JSON.stringify(weddings));
+            }
+
+            function updateUI() {
+                removePastWeddings();
+                ensureIds();
+                sortWeddings();
+                renderWeddings(searchInput.value.trim());
+            }
+
+            async function fetchFromGitHub(isManual = false) {
+                if (isManual) {
+                    if (weddings.length > 0 && !confirm('סנכרון מ-GitHub יעדכן את הרשימה מהשרת. האם להמשיך?')) {
+                        return;
+                    }
+                    syncStatus.textContent = '🔄 מסנכרן מ-GitHub...';
+                }
+                
+                let success = false;
+                for (const baseUrl of GITHUB_URLS) {
+                    try {
+                        const fetchUrl = `${baseUrl}?t=${Date.now()}`;
+                        const response = await fetch(fetchUrl);
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (Array.isArray(data)) {
+                                weddings = data.map(item => ({
+                                    ...item,
+                                    venueName: item.venueName || item.location || '',
+                                    id: item.id || ('w_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now())
+                                }));
+                                
+                                updateUI();
+                                saveWeddings();
+                                syncStatus.textContent = '✅ סונכרן מ-GitHub';
+                                syncStatus.style.color = '#27ae60';
+                                success = true;
+                                break;
+                            }
+                        }
+                    } catch (err) {
+                        console.warn('ניסיון סנכרון נכשל מכתובת:', baseUrl, err);
+                    }
+                }
+
+                if (!success) {
+                    if (isManual) {
+                        alert('לא ניתן לסנכרן כעת מ-GitHub. מוצגים הנתונים המקומיים השמורים.');
+                    }
+                    syncStatus.textContent = '💻 נתונים מקומיים';
+                    syncStatus.style.color = '#57606f';
+                }
+            }
+
+            updateUI();
+            
+            // טעינה אוטומטית מ-GitHub תתבצע רק אם אין כלל נתונים שמורים מקומית
+            if (!savedData || weddings.length === 0) {
+                fetchFromGitHub(false);
+            }
+
+            syncGithubBtn.addEventListener('click', () => {
+                fetchFromGitHub(true);
+            });
+
+            let editId = null;
+
+            function formatDate(dateString) {
+                if (!dateString) return '';
+                const parts = dateString.split('-');
+                if (parts.length < 3) return dateString;
+                return `${parts[2]}/${parts[1]}/${parts[0]}`;
+            }
+
+            function getDayOfWeek(dateString) {
+                if (!dateString) return '';
+                const parts = dateString.split('-');
+                if (parts.length < 3) return '';
+                const year = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10) - 1;
+                const day = parseInt(parts[2], 10);
+                
+                // קביעת שעה בצהריים כדי למנוע סטיות של מעברי שעון קיץ/חורף
+                const date = new Date(year, month, day, 12, 0, 0);
+                if (isNaN(date.getTime())) return '';
+                
+                const days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
+                return 'יום ' + days[date.getDay()];
+            }
+
+            function escapeHtml(text) {
+                if (text === null || text === undefined) return '';
+                const map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return String(text).replace(/[&<>"']/g, m => map[m]);
+            }
+
+            function renderWeddings(filterText = '') {
+                listContainer.innerHTML = '';
+                
+                const filteredWeddings = weddings.filter(wedding => {
+                    const groom = (wedding.groomName || '').toLowerCase();
+                    const committee = (wedding.committee || '').toLowerCase();
+                    const venue = (wedding.venueName || wedding.location || '').toLowerCase();
+                    const address = (wedding.address || '').toLowerCase();
+                    const hebrew = (wedding.hebrewDate || '').toLowerCase();
+                    const dayOfWeek = getDayOfWeek(wedding.gregorianDate).toLowerCase();
+                    const searchLower = filterText.toLowerCase();
+
+                    return groom.includes(searchLower) || 
+                           committee.includes(searchLower) || 
+                           venue.includes(searchLower) || 
+                           address.includes(searchLower) || 
+                           hebrew.includes(searchLower) ||
+                           dayOfWeek.includes(searchLower);
+                });
+                
+                if (filteredWeddings.length === 0) {
+                    const message = filterText 
+                        ? 'לא נמצאו חתונות התואמות לחיפוש הנוכחי.' 
+                        : 'אין עדיין חתונות עתידיות ברשימה.';
+                    listContainer.innerHTML = `<tr><td colspan="8" class="no-data">${message}</td></tr>`;
+                    return;
+                }
+
+                filteredWeddings.forEach((wedding) => {
+                    const tr = document.createElement('tr');
+                    
+                    const venue = wedding.venueName || wedding.location || '';
+                    const searchQuery = encodeURIComponent(`${venue} ${wedding.address || ''}`.trim());
+                    const addressCell = wedding.address 
+                        ? `<a href="https://www.google.com/maps/search/?api=1&query=${searchQuery}" target="_blank" rel="noopener noreferrer" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>${escapeHtml(wedding.address)}</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a>` 
+                        : '';
+
+                    const dayOfWeek = getDayOfWeek(wedding.gregorianDate);
+
+                    tr.innerHTML = `
+                        <td><strong>${escapeHtml(wedding.groomName)}</strong></td>
+                        <td>${escapeHtml(wedding.committee || '')}</td>
+                        <td>${escapeHtml(venue)}</td>
+                        <td>${addressCell}</td>
+                        <td>${escapeHtml(dayOfWeek)}</td>
+                        <td>${formatDate(wedding.gregorianDate)}</td>
+                        <td>${escapeHtml(wedding.hebrewDate)}</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="${escapeHtml(wedding.id)}">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="${escapeHtml(wedding.id)}">מחק</button>
+                        </td>
+                    `;
+                    listContainer.appendChild(tr);
+                });
+            }
+
+            listContainer.addEventListener('click', (e) => {
+                const editBtn = e.target.closest('.btn-edit');
+                const deleteBtn = e.target.closest('.btn-delete');
+                
+                if (editBtn) {
+                    const id = editBtn.getAttribute('data-id');
+                    startEdit(id);
+                } else if (deleteBtn) {
+                    const id = deleteBtn.getAttribute('data-id');
+                    deleteWedding(id);
+                }
+            });
+
+            function startEdit(id) {
+                editId = id;
+                const wedding = weddings.find(w => w.id === id);
+                if (!wedding) return;
+
+                setLoadingState(false);
+
+                document.getElementById('groomName').value = wedding.groomName;
+                document.getElementById('committee').value = wedding.committee || '';
+                document.getElementById('venueName').value = wedding.venueName || wedding.location || '';
+                document.getElementById('address').value = wedding.address || '';
+                gregorianDateInput.value = wedding.gregorianDate || '';
+                hebrewDateInput.value = wedding.hebrewDate || '';
+
+                formSectionTitle.textContent = 'עריכת פרטי חתונה';
+                submitBtn.textContent = 'עדכן חתונה ברשימה';
+                cancelEditBtn.style.display = 'inline-block';
+
+                document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function cancelEdit() {
+                editId = null;
+                form.reset();
+                formSectionTitle.textContent = 'הוספת חתונה חדשה';
+                submitBtn.textContent = 'שמור חתונה ברשימה';
+                cancelEditBtn.style.display = 'none';
+                setLoadingState(false);
+            }
+
+            function deleteWedding(id) {
+                if (confirm('האם אתה בטוח שברצונך למחוק חתונה זו מהרשימה?')) {
+                    if (editId === id) {
+                        cancelEdit();
+                    }
+                    weddings = weddings.filter(w => w.id !== id);
+                    saveWeddings();
+                    renderWeddings(searchInput.value.trim());
+                }
+            }
+
+            // ==========================================
+            //      מנגנון המרת תאריכים עברי-לועזי
+            // ==========================================
+            function cleanHebrewString(str) {
+                if (!str) return '';
+                return str.replace(/[\u0591-\u05C7]/g, '').replace(/[״׳"']/g, '').replace(/,/g, '').trim();
+            }
+
+            function hebrewToNumber(str) {
+                const values = {
+                    'א': 1, 'ב': 2, 'ג': 3, 'ד': 4, 'ה': 5, 'ו': 6, 'ז': 7, 'ח': 8, 'ט': 9, 'י': 10,
+                    'כ': 20, 'ל': 30, 'מ': 40, 'נ': 50, 'ס': 60, 'ע': 70, 'פ': 80, 'צ': 90, 'ק': 100,
+                    'ר': 200, 'ש': 300, 'ת': 400, 'ך': 20, 'ם': 40, 'ן': 50, 'ף': 80, 'ץ': 90
+                };
+                let sum = 0;
+                const cleanStr = cleanHebrewString(str);
+                for (let char of cleanStr) {
+                    if (values[char]) sum += values[char];
+                }
+                return sum;
+            }
+
+            const hebrewMonthsMap = {
+                'תשרי': 'Tishrei', 'חשון': 'Cheshvan', 'חשוון': 'Cheshvan', 'מרחשון': 'Cheshvan', 'מרחשוון': 'Cheshvan', 'מר-חשון': 'Cheshvan',
+                'כסלו': 'Kislev', 'כסליו': 'Kislev', 'טבת': 'Tevet', 'שבט': 'Sh\'vat',
+                'אדר': 'Adar', 'אדר א': 'Adar1', 'אדר ראשון': 'Adar1', 'אדר 1': 'Adar1',
+                'אדר ב': 'Adar2', 'אדר שני': 'Adar2', 'אדר 2': 'Adar2',
+                'ניסן': 'Nisan', 'אייר': 'Iyyar', 'איר': 'Iyyar', 'סיון': 'Sivan', 'סיוון': 'Sivan',
+                'תמוז': 'Tamuz', 'אב': 'Av', 'מנחם אב': 'Av', 'מנחם-אב': 'Av', 'אלול': 'Elul'
+            };
+
+            function parseHebrewMonth(word) {
+                if (!word) return null;
+                const cleanWord = cleanHebrewString(word);
+                if (hebrewMonthsMap[cleanWord]) return hebrewMonthsMap[cleanWord];
+                if (cleanWord.startsWith('ב') && cleanWord.length > 1) {
+                    const sliced = cleanWord.slice(1);
+                    if (hebrewMonthsMap[sliced]) return hebrewMonthsMap[sliced];
+                }
+                return null;
+            }
+
+            function parseHebrewDateString(str) {
+                if (!str) return null;
+                const ignoredWords = [
+                    "בסד", "בס״ד", "בעה", "בע״ה", "בעזהית", "בעזהי״ת", "שנת", "בשנת", "יום", 
+                    "ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת", "מוצש", "מוצאי",
+                    "ליל", "ערב", "פרשת", "פרשה", "לפק", "לפ״ק", "לאלף", "הששי", "השישי"
+                ];
+                
+                const parts = str.trim()
+                    .replace(/[,;]/g, ' ')
+                    .split(/\s+/)
+                    .filter(p => {
+                        const cleanP = cleanHebrewString(p);
+                        return cleanP && !ignoredWords.includes(cleanP);
+                    });
+
+                if (parts.length < 2) return null;
+
+                // איתור החודש בתוך המחרוזת (חודש בודד או מורכב)
+                let monthIndex = -1;
+                let parsedMonth = null;
+                let isTwoWordMonth = false;
+
+                for (let i = 0; i < parts.length; i++) {
+                    if (i + 1 < parts.length) {
+                        const twoWords = parts[i] + " " + parts[i + 1];
+                        const testTwo = parseHebrewMonth(twoWords);
+                        if (testTwo) {
+                            monthIndex = i;
+                            parsedMonth = testTwo;
+                            isTwoWordMonth = true;
+                            break;
+                        }
+                    }
+                    const testOne = parseHebrewMonth(parts[i]);
+                    if (testOne) {
+                        monthIndex = i;
+                        parsedMonth = testOne;
+                        break;
+                    }
+                }
+
+                if (!parsedMonth || monthIndex === 0) return null;
+
+                const dayStr = parts[monthIndex - 1];
+                let yearStr = isTwoWordMonth ? parts[monthIndex + 2] : parts[monthIndex + 1];
+
+                let cleanDay = cleanHebrewString(dayStr);
+                if (cleanDay.startsWith('ב') && cleanDay.length > 1 && !/^\d+$/.test(cleanDay)) {
+                    cleanDay = cleanDay.slice(1);
+                }
+
+                let day = /^\d+$/.test(cleanDay) ? parseInt(cleanDay, 10) : hebrewToNumber(cleanDay);
+
+                let year;
+                if (!yearStr) {
+                    // שנה נוכחית כברירת מחדל אם לא צוינה
+                    year = new Date().getFullYear() + 3760;
+                } else {
+                    let cleanYear = cleanHebrewString(yearStr);
+                    if (/^\d+$/.test(cleanYear)) {
+                        year = parseInt(cleanYear, 10);
+                    } else {
+                        if (cleanYear.startsWith('ה') && cleanYear.length >= 4 && (cleanYear.startsWith('הת') || cleanYear.startsWith('הש'))) {
+                            cleanYear = cleanYear.slice(1);
+                        }
+                        year = hebrewToNumber(cleanYear);
+                        if (year < 1000) year += 5000;
+                    }
+                }
+
+                if (day > 0 && day <= 30 && parsedMonth && year >= 5000 && year < 6000) {
+                    return { day, month: parsedMonth, year };
+                }
+                return null;
+            }
+
+            function setLoadingState(isLoading, message = '', isError = false) {
+                loadingHebrew.textContent = message;
+                if (message) {
+                    loadingHebrew.style.color = isError ? 'var(--danger-color)' : 'var(--logo-burgundy)';
+                }
+                submitBtn.disabled = isLoading;
+                submitBtn.style.opacity = isLoading ? '0.6' : '1';
+                submitBtn.style.cursor = isLoading ? 'not-allowed' : 'pointer';
+            }
+
+            async function fetchGregorianDate(hebrewDateStr) {
+                const parsed = parseHebrewDateString(hebrewDateStr);
+                if (!parsed) return null;
+                
+                const cacheKey = `${parsed.day}_${parsed.month}_${parsed.year}`;
+                if (dateCache.h2g[cacheKey]) return dateCache.h2g[cacheKey];
+                
+                setLoadingState(true, 'מזהה תאריך עברי ומחשב לועזי...');
+                try {
+                    const response = await fetch(`https://www.hebcal.com/converter?cfg=json&hy=${parsed.year}&hm=${encodeURIComponent(parsed.month)}&hd=${parsed.day}&h2g=1`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data && data.gy && data.gm && data.gd) {
+                            const formattedMonth = String(data.gm).padStart(2, '0');
+                            const formattedDay = String(data.gd).padStart(2, '0');
+                            const result = `${data.gy}-${formattedMonth}-${formattedDay}`;
+                            dateCache.h2g[cacheKey] = result;
+                            return result;
+                        }
+                    }
+                } catch (error) {
+                    console.error('שגיאה בחיבור לשירות המרת תאריכים', error);
+                } finally {
+                    setLoadingState(false);
+                }
+                return null;
+            }
+
+            async function fetchHebrewDate(dateValue) {
+                if (!dateValue) {
+                    setLoadingState(false);
+                    return;
+                }
+                if (dateCache.g2h[dateValue]) {
+                    hebrewDateInput.value = dateCache.g2h[dateValue];
+                    setLoadingState(false);
+                    return;
+                }
+                
+                const [year, month, day] = dateValue.split('-');
+                setLoadingState(true, 'מחשב תאריך עברי...');
+                
+                try {
+                    const response = await fetch(`https://www.hebcal.com/converter?cfg=json&gy=${year}&gm=${month}&gd=${day}&g2h=1`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data && data.hebrew) {
+                            hebrewDateInput.value = data.hebrew;
+                            dateCache.g2h[dateValue] = data.hebrew;
+                            setLoadingState(false);
+                        } else {
+                            setLoadingState(false, '⚠️ לא התקבל תאריך עברי מתאים.', true);
+                        }
+                    } else {
+                        setLoadingState(false, '⚠️ שגיאה בשירות המרת התאריכים.', true);
+                    }
+                } catch (error) {
+                    console.error('שגיאה בחיבור לשירות המרת תאריכים', error);
+                    setLoadingState(false, '⚠️ שגיאה בחיבור לרשת. ניתן להזין תאריך עברי ידנית.', true);
+                }
+            }
+
+            gregorianDateInput.addEventListener('change', (e) => {
+                fetchHebrewDate(e.target.value);
+            });
+
+            hebrewDateInput.addEventListener('change', async (e) => {
+                const value = e.target.value.trim();
+                if (!value) return;
+                const gregDate = await fetchGregorianDate(value);
+                if (gregDate) {
+                    gregorianDateInput.value = gregDate;
+                    setLoadingState(false, 'התאריך פוענח בהצלחה!', false);
+                    loadingHebrew.style.color = '#27ae60';
+                } else {
+                    setLoadingState(false, '⚠️ לא הצלחנו לפענח את התאריך העברי. מומלץ לכתוב בפורמט: כ״ז באב תשפ״ו', true);
+                }
+            });
+
+            // ==========================================
+            //      ייצוא לאקסל (Excel)
+            // ==========================================
+            function exportToExcel() {
+                if (weddings.length === 0) {
+                    alert('אין נתונים לייצוא.');
+                    return;
+                }
+
+                let excelContent = `
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">
+                    <!--[if gte mso 9]>
+                    <xml>
+                        <x:ExcelWorkbook>
+                            <x:ExcelWorksheets>
+                                <x:ExcelWorksheet>
+                                    <x:Name>רשימת חתונות</x:Name>
+                                    <x:WorksheetOptions>
+                                        <x:DisplayRightToLeft/>
+                                    </x:WorksheetOptions>
+                                </x:ExcelWorksheet>
+                            </x:ExcelWorksheets>
+                        </x:ExcelWorkbook>
+                    </xml>
+                    <![endif]-->
+                    <style>
+                        table { border-collapse: collapse; direction: rtl; }
+                        th, td { border: 1px solid #cccccc; padding: 8px; text-align: right; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+                        th { background-color: #4a121a; color: white; font-weight: bold; }
+                    </style>
+                </head>
+                <body>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>שם החתן</th>
+                                <th>ועד</th>
+                                <th>שם האולם</th>
+                                <th>כתובת</th>
+                                <th>יום בשבוע</th>
+                                <th>תאריך לועזי</th>
+                                <th>תאריך עברי</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                weddings.forEach(w => {
+                    const dayOfWeek = getDayOfWeek(w.gregorianDate);
+                    excelContent += `
+                        <tr>
+                            <td><b>${escapeHtml(w.groomName)}</b></td>
+                            <td>${escapeHtml(w.committee || '')}</td>
+                            <td>${escapeHtml(w.venueName || w.location || '')}</td>
+                            <td>${escapeHtml(w.address || '')}</td>
+                            <td>${escapeHtml(dayOfWeek)}</td>
+                            <td>${formatDate(w.gregorianDate)}</td>
+                            <td>${escapeHtml(w.hebrewDate)}</td>
+                        </tr>
+                    `;
+                });
+
+                excelContent += `
+                        </tbody>
+                    </table>
+                </body>
+                </html>
+                `;
+
+                const blob = new Blob(['\uFEFF' + excelContent], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.href = url;
+                downloadAnchor.download = 'wedding_dates.xls';
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click();
+                document.body.removeChild(downloadAnchor);
+                URL.revokeObjectURL(url);
+            }
+
+            exportExcelBtn.addEventListener('click', exportToExcel);
+
+            // ==========================================
+            //      ניהול קבצי גיבוי (JSON)
+            // ==========================================
+            exportBtn.addEventListener('click', () => {
+                if (weddings.length === 0) {
+                    alert('אין נתונים לייצוא.');
+                    return;
+                }
+                const cleanWeddings = weddings.map(({ id, ...rest }) => rest);
+                const jsonBlob = new Blob([JSON.stringify(cleanWeddings, null, 2)], { type: "application/json;charset=utf-8;" });
+                const url = URL.createObjectURL(jsonBlob);
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.href = url;
+                downloadAnchor.download = "wedding_dates_backup.json";
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click();
+                document.body.removeChild(downloadAnchor);
+                URL.revokeObjectURL(url);
+            });
+
+            importBtn.addEventListener('click', () => {
+                importFileInput.click();
+            });
+
+            importFileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    try {
+                        const imported = JSON.parse(event.target.result);
+                        if (Array.isArray(imported)) {
+                            if (confirm(`⚠️ אזהרה: טעינת הגיבוי תחליף את הרשימה הקיימת ב-${imported.length} חתונות מקובץ הגיבוי.\n(חתונות שעבר זמנן יוסרו אוטומטית)\n\nהאם להמשיך?`)) {
+                                weddings = [];
+                                imported.forEach(newW => {
+                                    if (!newW.groomName) return;
+                                    newW.venueName = newW.venueName || newW.location || '';
+                                    newW.id = 'w_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+                                    weddings.push(newW);
+                                });
+                                updateUI();
+                                saveWeddings();
+                                alert('הגיבוי נטען בהצלחה!');
+                            }
+                        } else {
+                            alert('קובץ הגיבוי אינו תקין.');
+                        }
+                    } catch (err) {
+                        alert('שגיאה בקריאת הקובץ.');
+                    }
+                    importFileInput.value = '';
+                };
+                reader.readAsText(file);
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                renderWeddings(e.target.value.trim());
+            });
+
+            cancelEditBtn.addEventListener('click', cancelEdit);
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const groomName = document.getElementById('groomName').value.trim();
+                const committee = document.getElementById('committee').value.trim();
+                const venueName = document.getElementById('venueName').value.trim();
+                const address = document.getElementById('address').value.trim();
+                const gregorianDate = gregorianDateInput.value;
+                const hebrewDate = hebrewDateInput.value.trim();
+
+                const weddingData = {
+                    groomName,
+                    committee,
+                    venueName,
+                    address,
+                    gregorianDate,
+                    hebrewDate
+                };
+
+                if (editId) {
+                    const index = weddings.findIndex(w => w.id === editId);
+                    if (index > -1) {
+                        weddingData.id = editId;
+                        weddings[index] = weddingData;
+                    }
+                    cancelEdit();
+                } else {
+                    weddingData.id = 'w_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+                    weddings.push(weddingData);
+                    form.reset();
+                    setLoadingState(false);
+                }
+
+                searchInput.value = '';
+                updateUI();
+                saveWeddings();
+            });
+        });
+    </script>
+
+</body></html>
