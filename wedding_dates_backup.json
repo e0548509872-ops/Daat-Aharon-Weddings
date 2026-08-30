@@ -1,0 +1,146 @@
+[
+  {
+    "groomName": "יהודה פרויליך",
+    "committee": "ועד ו",
+    "venueName": "נוף עלית",
+    "address": "מודיעין עלית, שד' יחזקאל 2",
+    "gregorianDate": "2026-10-05",
+    "hebrewDate": "כד תשרי תשפז"
+  },
+  {
+    "groomName": "יהודה לוי",
+    "committee": "ועד ו",
+    "venueName": "נוף עלית",
+    "address": "מודיעין עלית, שד' יחזקאל 2",
+    "gregorianDate": "2026-10-07",
+    "hebrewDate": "כו תשרי תשפז"
+  },
+  {
+    "groomName": "אברהם ג'יקוב",
+    "committee": "ועד ו",
+    "venueName": "אולמי פביליון",
+    "address": "ירושלים, האומן 14",
+    "gregorianDate": "2026-10-08",
+    "hebrewDate": "כז תשרי תשפז"
+  },
+  {
+    "groomName": "שימי אלקיכן",
+    "committee": "ועד ו",
+    "venueName": "אולמי גוטניק",
+    "address": "ירושלים, בית הדפוס 11",
+    "gregorianDate": "2026-10-11",
+    "hebrewDate": "ל תשרי תשפז"
+  },
+  {
+    "groomName": "אריאל דעי",
+    "committee": "ועד ו",
+    "venueName": "הדר דימול",
+    "address": "רמת גן, ז'בוטינסקי 1",
+    "gregorianDate": "2026-10-12",
+    "hebrewDate": "א חשון תשפז"
+  },
+  {
+    "groomName": "אלחנן בוגרד",
+    "committee": "ועד ו",
+    "venueName": "אולמי בריליאנט",
+    "address": "מודיעין עלית, אורחות צדיקים 5",
+    "gregorianDate": "2026-10-13",
+    "hebrewDate": "ב חשון תשפז"
+  },
+  {
+    "groomName": "בניהו כהן",
+    "committee": "ועד ח",
+    "venueName": "אולמי אובליון",
+    "address": "מודיעין עלית, דרך ק\"ס 1",
+    "gregorianDate": "2026-10-14",
+    "hebrewDate": "ג חשון תשפז"
+  },
+  {
+    "groomName": "משה פרידמן",
+    "committee": "ועד ו",
+    "venueName": "אולמי כינור דוד",
+    "address": "בית שמש, האומן 2",
+    "gregorianDate": "2026-10-15",
+    "hebrewDate": "ד חשון תשפז"
+  },
+  {
+    "groomName": "משה היישריק",
+    "committee": "ועד ו",
+    "venueName": "אחוזת פרידמן",
+    "address": "אשדוד, יהלום 4",
+    "gregorianDate": "2026-11-03",
+    "hebrewDate": "כג חשון תשפז"
+  },
+  {
+    "groomName": "אוריאל שילוני",
+    "committee": "ועד ו",
+    "venueName": "נוף עלית",
+    "address": "מודיעין עלית, שד' יחזקאל 2",
+    "gregorianDate": "2026-11-05",
+    "hebrewDate": "כה חשון תשפז"
+  },
+  {
+    "groomName": "יצחק ויא",
+    "committee": "ועד ח",
+    "venueName": "בית ברכה",
+    "address": "ביתר, רבי עקיבא 34",
+    "gregorianDate": "2026-11-08",
+    "hebrewDate": "כח חשון תשפז"
+  },
+  {
+    "groomName": "יוסף חיים המונד",
+    "committee": "ועד ז",
+    "venueName": "ארמונות אור",
+    "address": "ירושלים, בית הדפוס 5",
+    "gregorianDate": "2026-11-09",
+    "hebrewDate": "כט חשון תשפז"
+  },
+  {
+    "groomName": "גבריאל ניסים מזלין",
+    "committee": "ועד ז",
+    "venueName": "כינור דוד",
+    "address": "בית שמש, האומן 2",
+    "gregorianDate": "2026-11-15",
+    "hebrewDate": "ה כסלו תשפז"
+  },
+  {
+    "groomName": "יעקב בנדיקט",
+    "committee": "ועד ו",
+    "venueName": "אולמי SERA [סרה]",
+    "address": "בית שמש [אזור]",
+    "gregorianDate": "2026-11-16",
+    "hebrewDate": "ו כסלו תשפז"
+  },
+  {
+    "groomName": "ישראל מאיר יפה",
+    "committee": "ועד ו",
+    "venueName": "היכל הנגינה",
+    "address": "מודיעין עלית, רשב\"י 21",
+    "gregorianDate": "2026-11-19",
+    "hebrewDate": "ט כסלו תשפז"
+  },
+  {
+    "groomName": "אריה לייב מזיע",
+    "committee": "ועד ז",
+    "venueName": "נאות השמחה",
+    "address": "מודיעין עלית, נתיבות המשפט 111",
+    "gregorianDate": "2026-11-23",
+    "hebrewDate": "יג כסלו תשפז"
+  },
+  {
+    "groomName": "שאול גולדברג",
+    "committee": "ועד ה",
+    "venueName": "ארמונות אור",
+    "address": "ירושלים, בית הדפוס 5",
+    "gregorianDate": "2026-11-25",
+    "hebrewDate": "טו כסלו תשפז"
+  },
+  {
+    "groomName": "יצחק בדלנדר",
+    "committee": "ועד ו",
+    "venueName": "ארמונות פרידמן",
+    "address": "בני ברק, כהנמן 108",
+    "gregorianDate": "2026-11-30",
+    "hebrewDate": "כ כסלו תשפז"
+  }
+]
