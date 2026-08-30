@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0281)file:///C:/Users/WINDOWS%2011/Documents/%D7%92%D7%99%D7%98%D7%94%D7%90%D7%91%20%D7%97%D7%AA%D7%95%D7%A0%D7%95%D7%AA/%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%20%D7%97%D7%AA%D7%95%D7%A0%D7%95%D7%AA%20-%20%D7%93%D7%A2%D7%AA%20%D7%90%D7%94%D7%A8%D7%9F.html -->
+<!-- saved from url=(0203)file:///C:/Users/WINDOWS%2011/Desktop/%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%20%D7%97%D7%AA%D7%95%D7%A0%D7%95%D7%AA%20-%20%D7%93%D7%A2%D7%AA%20%D7%90%D7%94%D7%A8%D7%9F.html -->
 <html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,6 @@
 
         body {
             font-family: 'Assistant', sans-serif;
-            /* רקע עדין המשלב תכלת רך וזהב שמפניה ללא תמונות חיצוניות */
             background: radial-gradient(circle at 15% 15%, rgba(227, 242, 253, 0.75) 0%, transparent 55%),
                         radial-gradient(circle at 85% 85%, rgba(247, 235, 218, 0.8) 0%, transparent 55%),
                         linear-gradient(135deg, #f2f6fa 0%, #fbf9f6 50%, #f7edd9 100%);
@@ -52,7 +51,6 @@
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        /* עיצוב הלוגו בראש העמוד */
         .header-logo {
             max-height: 130px;
             width: auto;
@@ -77,7 +75,7 @@
 
         .form-section, .list-section {
             background-color: var(--card-bg);
-            backdrop-filter: blur(10px); /* אפקט זכוכית */
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.08);
@@ -136,7 +134,6 @@
             box-shadow: 0 0 5px rgba(74, 18, 26, 0.2);
         }
 
-        /* אזור כפתורי הפעולה של הטופס */
         .form-actions {
             grid-column: span 2;
             display: flex;
@@ -183,7 +180,6 @@
             background-color: #57606f;
         }
 
-        /* עיצוב החיפוש ואפשרויות הגיבוי */
         .search-container {
             margin-bottom: 15px;
         }
@@ -206,7 +202,6 @@
             box-shadow: 0 0 8px rgba(74, 18, 26, 0.15);
         }
 
-        /* אזור גיבוי נתונים */
         .data-management-actions {
             display: flex;
             gap: 10px;
@@ -232,7 +227,6 @@
             color: white;
         }
 
-        /* כפתור אקסל ייחודי */
         .btn-excel {
             border-color: var(--excel-color);
             color: var(--excel-color);
@@ -243,7 +237,6 @@
             color: white;
         }
 
-        /* עיצוב הטבלה */
         .table-container {
             overflow-x: auto;
         }
@@ -333,12 +326,10 @@
             <section class="list-section" id="listSection">
                 <h2 class="section-title">חתונות שמורות ברשימה</h2>
                 
-                <!-- שדה חיפוש משודרג -->
                 <div class="search-container">
                     <input type="text" id="searchInput" placeholder="🔍 חפש ברשימה (לפי חתן, ועד, אולם, כתובת, יום או תאריך)...">
                 </div>
 
-                <!-- כפתורי גיבוי, ייצוא וניהול נתונים -->
                 <div class="data-management-actions">
                     <button id="exportExcelBtn" class="btn-data btn-excel">📊 ייצוא לאקסל (Excel)</button>
                     <button id="exportBtn" class="btn-data">📥 גיבוי רשימה (JSON)</button>
@@ -361,6 +352,21 @@
                             </tr>
                         </thead>
                         <tbody id="weddingList"><tr>
+                        <td><strong>בדיקה</strong></td>
+                        <td>בדיקה</td>
+                        <td>בדיקה</td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%91%D7%93%D7%99%D7%A7%D7%94" target="_blank" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
+                            <span>בדיקה</span>
+                            <span style="font-size: 0.95rem;">📍</span>
+                           </a></td>
+                        <td>יום ראשון</td>
+                        <td>30/08/2026</td>
+                        <td>י״ז בֶּאֱלוּל תשפ״ו</td>
+                        <td class="actions-cell">
+                            <button class="btn-action btn-edit" data-id="w_mcj1q383m_1788084865998">ערוך</button>
+                            <button class="btn-action btn-delete" data-id="w_mcj1q383m_1788084865998">מחק</button>
+                        </td>
+                    </tr><tr>
                         <td><strong>יהודה פרויליך</strong></td>
                         <td>ועד ו</td>
                         <td>נוף עלית</td>
@@ -651,7 +657,7 @@
                     
                     <div class="form-group">
                         <label for="gregorianDate">תאריך לועזי:</label>
-                        <input type="date" id="gregorianDate" required="">
+                        <input type="date" id="gregorianDate" required="" min="2026-08-30">
                     </div>
 
                     <div class="form-group">
@@ -697,13 +703,26 @@
             const importBtn = document.getElementById('importBtn');
             const importFileInput = document.getElementById('importFileInput');
 
-            // זיכרון מטמון מקומי למניעת קריאות רשת חוזרות ושיפור הביצועים
+            // קבלת התאריך הנוכחי בפורמט YYYY-MM-DD לפי הזמן המקומי
+            function getTodayDateString() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            // הגדרת מינימום בשדה התאריך כך שלא יהיה ניתן לבחור תאריך שכבר עבר
+            const todayStr = getTodayDateString();
+            gregorianDateInput.min = todayStr;
+
+            // זיכרון מטמון מקומי
             const dateCache = {
                 g2h: {},
                 h2g: {}
             };
 
-            // טעינת רשימת החתונות מה-LocalStorage ודאגה לקיום מזהה ייחודי (ID) לכל פריט
+            // טעינת רשימת החתונות מה-LocalStorage
             let weddings = [];
             try {
                 weddings = JSON.parse(localStorage.getItem('weddings')) || [];
@@ -711,6 +730,26 @@
                 console.error("שגיאה בטעינת נתונים מ-localStorage", e);
                 weddings = [];
             }
+
+            // פונקציה למחיקה אוטומטית של חתונות שהתאריך שלהן כבר עבר
+            function removePastWeddings() {
+                const currentToday = getTodayDateString();
+                const initialCount = weddings.length;
+                
+                // משאיר רק חתונות מהיום והלאה
+                weddings = weddings.filter(w => {
+                    if (!w.gregorianDate) return false;
+                    return w.gregorianDate >= currentToday;
+                });
+
+                // אם נמחקו חתונות שעברו, שומר את הרשימה המעודכנת
+                if (weddings.length !== initialCount) {
+                    saveWeddings();
+                }
+            }
+
+            // מחיקה אוטומטית של אירועי עבר בטעינת הדף
+            removePastWeddings();
 
             let needsSave = false;
             weddings = weddings.map(w => {
@@ -727,10 +766,8 @@
             // מיון ראשוני של הרשימה מהמוקדם למאוחר
             sortWeddings();
             
-            // משתנה למעקב אחר מזהה הפריט הנערך כעת
             let editId = null;
 
-            // פונקציה למיון המערך לפי התאריך הלועזי (מהמוקדם למאוחר)
             function sortWeddings() {
                 weddings.sort((a, b) => {
                     const dateA = a.gregorianDate ? new Date(a.gregorianDate).getTime() : 0;
@@ -741,12 +778,10 @@
                 });
             }
 
-            // שמירת הרשימה ב-LocalStorage
             function saveWeddings() {
                 localStorage.setItem('weddings', JSON.stringify(weddings));
             }
 
-            // פונקציה לעיצוב תצוגת התאריך הלועזי (DD/MM/YYYY)
             function formatDate(dateString) {
                 if (!dateString) return '';
                 const parts = dateString.split('-');
@@ -754,13 +789,12 @@
                 return `${parts[2]}/${parts[1]}/${parts[0]}`;
             }
 
-            // פונקציה לחישוב יום בשבוע על בסיס התאריך הלועזי (נמנעת מבעיות אזורי זמן)
             function getDayOfWeek(dateString) {
                 if (!dateString) return '';
                 const parts = dateString.split('-');
                 if (parts.length < 3) return '';
                 const year = parseInt(parts[0], 10);
-                const month = parseInt(parts[1], 10) - 1; // חודשים ב-JS מתחילים מ-0
+                const month = parseInt(parts[1], 10) - 1;
                 const day = parseInt(parts[2], 10);
                 
                 const date = new Date(year, month, day);
@@ -770,7 +804,6 @@
                 return 'יום ' + days[date.getDay()];
             }
 
-            // פונקציה לניקוי קוד HTML למניעת הזרקות קוד (XSS)
             function escapeHtml(text) {
                 if (!text) return '';
                 const map = {
@@ -783,7 +816,6 @@
                 return text.replace(/[&<>"']/g, m => map[m]);
             }
 
-            // פונקציה להצגת החתונות בטבלה (עם אפשרות לסינון לפי חיפוש רב-שדתי)
             function renderWeddings(filterText = '') {
                 listContainer.innerHTML = '';
                 
@@ -807,7 +839,7 @@
                 if (filteredWeddings.length === 0) {
                     const message = filterText 
                         ? 'לא נמצאו חתונות התואמות לחיפוש הנוכחי.' 
-                        : 'אין עדיין חתונות שמורות ברשימה.';
+                        : 'אין עדיין חתונות עתידיות ברשימה.';
                     listContainer.innerHTML = `<tr><td colspan="8" class="no-data">${message}</td></tr>`;
                     return;
                 }
@@ -815,7 +847,6 @@
                 filteredWeddings.forEach((wedding) => {
                     const tr = document.createElement('tr');
                     
-                    // יצירת קישור מותאם אישית לחיפוש כתובת בגוגל מפות (שילוב של שם האולם והכתובת)
                     const searchQuery = encodeURIComponent(`${wedding.venueName || ''} ${wedding.address || ''}`.trim());
                     const addressCell = wedding.address 
                         ? `<a href="https://www.google.com/maps/search/?api=1&query=${searchQuery}" target="_blank" style="color: var(--logo-burgundy); text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="ניווט בגוגל מפות">
@@ -843,7 +874,6 @@
                 });
             }
 
-            // האזנה לפעולות עריכה ומחיקה דרך Event Delegation לביצועים מהירים וחסכון במשאבי זיכרון
             listContainer.addEventListener('click', (e) => {
                 const editBtn = e.target.closest('.btn-edit');
                 const deleteBtn = e.target.closest('.btn-delete');
@@ -857,13 +887,11 @@
                 }
             });
 
-            // הפעלת מצב עריכה עבור פריט נבחר
             function startEdit(id) {
                 editId = id;
                 const wedding = weddings.find(w => w.id === id);
                 if (!wedding) return;
 
-                // איפוס חיוויי טעינה קודמים לפני מעבר למצב עריכה
                 setLoadingState(false);
 
                 document.getElementById('groomName').value = wedding.groomName;
@@ -880,7 +908,6 @@
                 document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
             }
 
-            // ביטול מצב עריכה
             function cancelEdit() {
                 editId = null;
                 form.reset();
@@ -890,7 +917,6 @@
                 setLoadingState(false);
             }
 
-            // מחיקת חתונה
             function deleteWedding(id) {
                 if (confirm('האם אתה בטוח שברצונך למחוק חתונה זו מהרשימה?')) {
                     if (editId === id) {
@@ -906,14 +932,11 @@
             //      מנגנון המרת תאריכים עברי-לועזי
             // ==========================================
 
-            // פונקציית עזר לניקוי יוניקוד, ניקוד מלא, גרשיים ומרכאות לשם פענוח תקין
             function cleanHebrewString(str) {
                 if (!str) return '';
-                // הסרת ניקוד וטעמים עבריים (\u0591-\u05C7) והסרת גרשיים/גרש (כולל יוניקוד) ומרכאות
                 return str.replace(/[\u0591-\u05C7]/g, '').replace(/[״׳"']/g, '').trim();
             }
 
-            // פונקציה לתרגום אותיות עבריות לגימטריה (עבור ימים ושנים)
             function hebrewToNumber(str) {
                 const values = {
                     'א': 1, 'ב': 2, 'ג': 3, 'ד': 4, 'ה': 5, 'ו': 6, 'ז': 7, 'ח': 8, 'ט': 9, 'י': 10,
@@ -930,7 +953,6 @@
                 return sum;
             }
 
-            // מיפוי חודשים לעבודה מול ה-API של Hebcal
             const hebrewMonthsMap = {
                 'תשרי': 'Tishrei', 'חשון': 'Cheshvan', 'חשוון': 'Cheshvan', 'מרחשון': 'Cheshvan', 'מרחשוון': 'Cheshvan',
                 'כסלו': 'Kislev', 'כסליו': 'Kislev', 'טבת': 'Tevet', 'שבט': 'Sh\'vat',
@@ -940,7 +962,6 @@
                 'תמוז': 'Tamuz', 'אב': 'Av', 'מנחם אב': 'Av', 'אלול': 'Elul'
             };
 
-            // זיהוי שם חודש תקין (כולל הסרת תחיליות כמו ב' באב -> אב)
             function parseHebrewMonth(word) {
                 const cleanWord = cleanHebrewString(word);
                 if (hebrewMonthsMap[cleanWord]) return hebrewMonthsMap[cleanWord];
@@ -951,9 +972,7 @@
                 return null;
             }
 
-            // פענוח של תאריך עברי חופשי לחלקיו [יום, חודש, שנה]
             function parseHebrewDateString(str) {
-                // סינון מילות עזר נפוצות כמו "שנת" או "בשנת" המבלבלות את הגימטריה של השנה
                 const ignoredWords = ["שנת", "בשנת"];
                 const parts = str.trim().split(/\s+/).filter(p => !ignoredWords.includes(cleanHebrewString(p)));
                 
@@ -963,7 +982,6 @@
                 let monthStr = parts[1];
                 let yearStr = parts[2];
 
-                // טיפול בחודשים הבנויים משתי מילים (כמו אדר א, אדר ראשון וכד׳)
                 if (parts.length >= 4) {
                     const combinedMonth = parts[1] + " " + parts[2];
                     const parsedCombined = parseHebrewMonth(combinedMonth);
@@ -973,7 +991,6 @@
                     }
                 }
 
-                // פענוח יום (תמיכה במספרים או באותיות)
                 let day;
                 const cleanDay = cleanHebrewString(dayStr);
                 if (/^\d+$/.test(cleanDay)) {
@@ -982,10 +999,8 @@
                     day = hebrewToNumber(cleanDay);
                 }
 
-                // פענוח חודש
                 const month = parseHebrewMonth(monthStr);
 
-                // פענוח שנה (תמיכה במספרים או באותיות כולל התעלמות מה' האלפים אם קיימת)
                 let year;
                 let cleanYear = cleanHebrewString(yearStr);
                 if (/^\d+$/.test(cleanYear)) {
@@ -1006,7 +1021,6 @@
                 return null;
             }
 
-            // ניהול נעילה וחיווי של הטופס בזמן קריאת רשת
             function setLoadingState(isLoading, message = '', isError = false) {
                 loadingHebrew.textContent = message;
                 if (message) {
@@ -1022,7 +1036,6 @@
                 }
             }
 
-            // קריאה ל-API לתרגום תאריך עברי ללועזי (עם מנגנון מטמון מובנה)
             async function fetchGregorianDate(hebrewDateStr) {
                 const parsed = parseHebrewDateString(hebrewDateStr);
                 if (!parsed) return null;
@@ -1053,7 +1066,6 @@
                 return null;
             }
 
-            // קריאה ל-API לתרגום תאריך לועזי לעברי (עם מנגנון מטמון מובנה)
             async function fetchHebrewDate(dateValue) {
                 if (!dateValue) return;
                 if (dateCache.g2h[dateValue]) {
@@ -1082,12 +1094,10 @@
                 }
             }
 
-            // אירוע: בעת בחירה של תאריך לועזי בלוח השנה
             gregorianDateInput.addEventListener('change', (e) => {
                 fetchHebrewDate(e.target.value);
             });
 
-            // אירוע: בעת הקלדת תאריך עברי ומעבר שדה (Blur או Change)
             hebrewDateInput.addEventListener('change', async (e) => {
                 const value = e.target.value.trim();
                 if (!value) return;
@@ -1102,7 +1112,7 @@
             });
 
             // ==========================================
-            //      ייצוא לקובץ אקסל (Excel)
+            //      ייצוא לאקסל (Excel)
             // ==========================================
             function exportToExcel() {
                 if (weddings.length === 0) {
@@ -1110,7 +1120,6 @@
                     return;
                 }
 
-                // בניית מבנה XML-HTML ל-Excel התומך בקידוד עברית ובכיווניות מימין לשמאל
                 let excelContent = `
                 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
                 <head>
@@ -1173,7 +1182,6 @@
                 </html>
                 `;
 
-                // שימוש ב-UTF-8 BOM (\uFEFF) בתחילת ה-Blob כדי למנוע הצגת ג'יבריש בגרסאות Excel שונות
                 const blob = new Blob(['\uFEFF' + excelContent], { type: 'application/vnd.ms-excel;charset=utf-8;' });
                 const url = URL.createObjectURL(blob);
                 const downloadAnchor = document.createElement('a');
@@ -1185,20 +1193,17 @@
                 URL.revokeObjectURL(url);
             }
 
-            // חיבור אירוע ייצוא אקסל
             exportExcelBtn.addEventListener('click', exportToExcel);
 
             // ==========================================
             //      ניהול קבצי גיבוי (JSON)
             // ==========================================
-
-            // פונקציית ייצוא נתונים לקובץ JSON
             exportBtn.addEventListener('click', () => {
                 if (weddings.length === 0) {
                     alert('אין נתונים לייצוא.');
                     return;
                 }
-                const cleanWeddings = weddings.map(({ id, ...rest }) => rest); // ייצוא נתונים נקיים ללא מזהי תוכנה זמניים
+                const cleanWeddings = weddings.map(({ id, ...rest }) => rest);
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(cleanWeddings, null, 2));
                 const downloadAnchor = document.createElement('a');
                 downloadAnchor.setAttribute("href", dataStr);
@@ -1208,7 +1213,6 @@
                 downloadAnchor.remove();
             });
 
-            // פונקציית ייבוא נתונים מקובץ JSON (החלפה מלאה של הרשימה)
             importBtn.addEventListener('click', () => {
                 importFileInput.click();
             });
@@ -1221,24 +1225,21 @@
                     try {
                         const imported = JSON.parse(event.target.result);
                         if (Array.isArray(imported)) {
-                            // אזהרת דריסה והחלפה מפורשת למשתמש
-                            if (confirm(`⚠️ אזהרה: טעינת הגיבוי תמחק לחלוטין את הרשימה הקיימת ותחליף אותה ב-${imported.length} חתונות מקובץ הגיבוי.\n\nהאם ברצונך להמשיך?`)) {
-                                // מחיקת הרשימה הישנה לחלוטין
+                            if (confirm(`⚠️ אזהרה: טעינת הגיבוי תמחק את הרשימה הקיימת ותחליף אותה ב-${imported.length} חתונות מקובץ הגיבוי.\n(חתונות שעבר זמנן יוסרו אוטומטית)\n\nהאם ברצונך להמשיך?`)) {
                                 weddings = [];
                                 
                                 imported.forEach(newW => {
-                                    if (!newW.groomName) return; // דילוג על רשומות לא תקינות בגיבוי
-                                    
-                                    // יצירת מזהה ייחודי חדש לרשומה המיובאת
+                                    if (!newW.groomName) return;
                                     newW.id = 'w_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
                                     weddings.push(newW);
                                 });
                                 
-                                // מיון מחדש מהמוקדם למאוחר, שמירה והצגה מחדש במסך
+                                // ניקוי חתונות שעברו גם מהגיבוי שנטען
+                                removePastWeddings();
                                 sortWeddings();
                                 saveWeddings();
                                 renderWeddings();
-                                alert('הגיבוי נטען והחליף את הרשימה הקודמת בהצלחה!');
+                                alert('הגיבוי נטען בהצלחה וחתונות שעברו הוסרו!');
                             }
                         } else {
                             alert('קובץ הגיבוי אינו תקין.');
@@ -1246,22 +1247,19 @@
                     } catch (err) {
                         alert('שגיאה בקריאת הקובץ.');
                     }
-                    importFileInput.value = ''; // איפוס הבחירה של הקובץ
+                    importFileInput.value = '';
                 };
                 reader.readAsText(file);
             });
 
             // ==========================================
 
-            // אירוע הקלדה בתיבת החיפוש
             searchInput.addEventListener('input', (e) => {
                 renderWeddings(e.target.value.trim());
             });
 
-            // האזנה לכפתור ביטול עריכה
             cancelEditBtn.addEventListener('click', cancelEdit);
 
-            // שמירת חתונה חדשה או עדכון חתונה קיימת מהטופס
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
@@ -1294,16 +1292,14 @@
                     form.reset();
                 }
 
-                // מיון מחדש של הרשימה לפי התאריכים המעודכנים (מהמוקדם למאוחר)
                 sortWeddings();
                 saveWeddings();
                 
-                // איפוס החיפוש כדי להציג את הרשימה המעודכנת במלואה
                 searchInput.value = '';
                 renderWeddings();
             });
 
-            // הפעלה ראשונית של התצוגה
+            // הצגת הרשימה בטעינה ראשונית
             renderWeddings();
         });
     </script>
